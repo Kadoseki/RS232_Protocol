@@ -163,12 +163,12 @@ void CRS232ComDlg::OnBnClicked_ConnectBtt()
 		m_CBPortList.GetLBText(iPortIndex, strPort);
 
 		if (nullptr == m_hCom)
-			m_pComunication->PortConnection(iPortIndex, strPort, m_hCom, m_LogBox);
+			m_pComunication->PortConnection(iPortIndex, strPort, m_hCom, m_LogBox, this->GetSafeHwnd());
 		else if (nullptr != m_hCom)
 		{
 			CloseHandle(m_hCom);
 			m_hCom = nullptr;
-			m_pComunication->PortConnection(iPortIndex, strPort, m_hCom, m_LogBox);
+			m_pComunication->PortConnection(iPortIndex, strPort, m_hCom, m_LogBox, this->GetSafeHwnd());
 		}
 	}
 }
